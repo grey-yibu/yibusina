@@ -2,7 +2,7 @@
 # encoding=utf-8
 """
     Author      : grey(yangyuzhou)
-    lastCtime   : 2018.4.4
+    lastCtime   : 2018.4.10
     call        : 18813011762    563965323@qq.com
     args        : CUT_LENGTH => 切词后每个词的长度
                   _fileName  => 需要被切词的文件 默认值(0.txt)
@@ -13,6 +13,11 @@
                         滑动窗口。对于每一次滑动，要求保证第一个字符
                         和最后一个字符非空
                       3.结果进行字典计数，并输出
+                  叠词处理:
+                      在深度遍历时，对于叠词会出现过度统计(叠加统计)
+                      因此设计一个算法尽可能还原叠词真实次数
+                        得分(预计实际次数)=1/叠词层数 -1
+                      将得分累加即为所求(总叠词真实次数)
 """
 import os
 import re
@@ -35,13 +40,13 @@ def dictory(lines):
                 score = 1
                 words = i[j:j+CUT_LENGTH]
                 spaceFlag = 0
-                for k in words :                                   # 去掉结尾有空格的
+                for k in words :                                # 去掉结尾有空格的
                     if k.isspace() or k == "#": 
                         spaceFlag = 1
                         break
                 if spaceFlag :
                     continue
-                if words.count(i[j]) == CUT_LENGTH: # 叠词处理,得分=1/叠词层数 -1
+                if words.count(i[j]) == CUT_LENGTH:      # 叠词处理,得分=1/叠词层数 -1
                     score = score / (float)(CUT_LENGTH - 1)
                 if dict.has_key(words):
                     dict[words] += score

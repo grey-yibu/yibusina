@@ -1,9 +1,8 @@
 # coding: utf-8 
 # encoding=utf-8
-# 
 '''
     Author      : grey(yangyuzhou)
-    lastCtime   : 2018.4.4
+    lastCtime   : 2018.4.10
     call        : 18813011762    563965323@qq.com
     args        : deal => 选择执行到第m项过滤(1~8)
                   log  => 用日志记录第n项过滤选中的结果
