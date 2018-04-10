@@ -6,6 +6,7 @@
     call        : 18813011762    563965323@qq.com
     args        : deal => 选择执行到第m项过滤(1~8)
                   log  => 用日志记录第n项过滤选中的结果
+                  sourceFilePath => 切词源文件路径
     desc        : 使用n次正则，对原始数据进行过滤
                   通过两个参数，可以控制和观察过滤后，
                   以及被正则选择的结果都是什么
@@ -53,15 +54,20 @@ def regularFunc(lines, i, state, iflog):
     lines[i] = a1.sub('',lines[i])       
     
 def main(argv):
-    deal = 7
+    deal = 8
     log = -1
+    sourceFilePath = "./source/gugong.log"
     if len(argv) == 2 :
-        deal = int(argv[1])
+        sourceFilePath = argv[1]
     elif len(argv) == 3 :
-        deal = int(argv[1])
-        log  = int(argv[2])
+        sourceFilePath = argv[1]
+        deal = int(argv[2])
+    elif len(argv) == 4 :
+        sourceFilePath = argv[1]
+        deal = int(argv[2])
+        log  = int(argv[3])
 
-    fp = open("./source/gugong.log", "r")
+    fp = open(sourceFilePath, "r")
     try:
         lines = fp.readlines()
         for i in range(len(lines)):
