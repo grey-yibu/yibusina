@@ -4,14 +4,10 @@
 # call        : 18813011762    563965323@qq.com
 # args        : MinSearchWord  => 最短搜索词深度，
 #               MaxSearchWord  => 最长搜索词深度
-#               sourceFilePath => 用于设置源文件路径
-# desc        : 主体分为三步，从若干微博内容遍历提取关键词
-#               1.数据清洗(去除关键词无关内容)           place_cut_yibu.py
-#               2.按深度分别生成搜索结果(./ans文件夹下)  count_dict.py
-#               3.合并若干结果到finalResult              sum_dict.py
-#               4.进行语义过滤，去除断句                 cut_jieba.py
-#               5.去除top1词频内涵内容                   cut_top.py
-# demo        : sh run.sh 3 11 gugong.log      # 进行对gugong.log里文件3~11字切词
+#               sourceFilePath => 用于设置源文件文件夹路径
+# desc        : 对设置的文件夹进行遍历，分别将需要生成的结果文件
+#               保存至./ans文件夹中
+# demo        : sh foldeRun.sh 4 11 ./source      # 进行对gugong.log里文件3~11字切词
 # environment : python 2.6
 # charactor   : UTF-8
 ###############################################################
