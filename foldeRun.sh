@@ -1,6 +1,6 @@
 ###############################################################
 # Author      : grey(yangyuzhou)
-# lastCtime   : 2018.4.10
+# lastCtime   : 2018.4.11
 # call        : 18813011762    563965323@qq.com
 # args        : MinSearchWord  => 最短搜索词深度，
 #               MaxSearchWord  => 最长搜索词深度

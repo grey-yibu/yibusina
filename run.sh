@@ -1,6 +1,6 @@
 ###############################################################
 # Author      : grey(yangyuzhou)
-# lastCtime   : 2018.4.10
+# lastCtime   : 2018.4.11
 # call        : 18813011762    563965323@qq.com
 # args        : MinSearchWord  => 最短搜索词深度，
 #               MaxSearchWord  => 最长搜索词深度
@@ -82,7 +82,7 @@ echo ./ans/${sourceFilePath##*/}
 
 python bin/cut_top.py finalResult1 > ./ans/${sourceFilePath##*/}
 
-rm finalResult0 finalResult1 -rf
+rm finalResult0 finalResult1 finalResult -rf
 
 # python bin/count_dict.py 4 > ans/a4.txt 
 # python bin/count_dict.py 5 > ans/a5.txt 
